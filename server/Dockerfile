@@ -21,4 +21,5 @@ EXPOSE 3001
 # CMD ["dev"]
 
 # Iniciar o server e executar o script db:reset após o script dev
-CMD ["sh", "-c", "npm run db:reset && npm run dev"]
+# CMD ["sh", "-c", "npm run db:reset && npm run dev"]
+CMD ["sh", "-c", "npm run dev"]

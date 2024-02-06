@@ -4,13 +4,6 @@ const crypto = require('crypto');
 const multerS3 = require('multer-s3');
 const aws = require('@aws-sdk/client-s3');
 
-// Configurando as credenciais da AWS
-// aws.config.update({
-//   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-//   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-//   region: process.env.AWS_DEFAULT_REGION, // Definindo a região da AWS
-// });
-
 const storageTypes = {
   local: multer.diskStorage({
     destination: function (req, file, cb) {
@@ -60,20 +53,3 @@ module.exports = {
     }
   },
 };
-// const upload = multer({ storage: storage });
-
-// module.exports = upload;
-
-//OLD METHOD
-/* const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'public/uploads/projects/imgs'); // Diretório onde as imgs serão armazenadas
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + path.extname(file.originalname)); // Nome do arquivo
-  },
-});
-
-const upload = multer({ storage: storage });
-
-module.exports = upload; */

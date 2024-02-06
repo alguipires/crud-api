@@ -21,22 +21,22 @@ services:
   #   networks:
   #     - mvp-orange-squad13_network
 
-  frontend:
-    container_name: app_client
-    build: ./client
-    ports:
-      - 3000:3000
-    working_dir: /app-client
-    # Os `healthcheck` devem garantir que a aplicação
-    # está operacional, antes de liberar o container
-    volumes:
-      - ./client/src:/app-client/src
-    healthcheck:
-      test: ["CMD", "lsof", "-t", "-i:3000"]  # Caso utilize outra porta interna para o front, altere ela aqui também
-      timeout: 10s
-      retries: 5
-    networks:
-      - mvp-orange-squad13_network
+  # frontend:
+  #   container_name: app_client
+  #   build: ./client
+  #   ports:
+  #     - 3000:3000
+  #   working_dir: /app-client
+  #   # Os `healthcheck` devem garantir que a aplicação
+  #   # está operacional, antes de liberar o container
+  #   volumes:
+  #     - ./client/src:/app-client/src
+  #   healthcheck:
+  #     test: ["CMD", "lsof", "-t", "-i:3000"]  # Caso utilize outra porta interna para o front, altere ela aqui também
+  #     timeout: 10s
+  #     retries: 5
+  #   networks:
+  #     - mvp-orange-squad13_network
 
   backend:
     container_name: app_server
